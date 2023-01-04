@@ -1,22 +1,23 @@
 import {Router} from 'express';
 import * as controller from '../controllers/articles.controller.js';
+import { asyncWrapp } from '../utilities/asyncWrapp.js';
 
 
 const router = Router();
 
 
 
-router.get("/",controller.getAll);
-router.get("/:id",controller.getOne);
+router.get("/",asyncWrapp(controller.getAll));
+router.get("/:id",asyncWrapp(controller.getOne));
 
 
-router.post("/",controller.addOne)
+router.post("/",asyncWrapp(controller.addOne))
 
 
-router.put("/:id",controller.updateOne)
+router.put("/:id",asyncWrapp(controller.updateOne))
 
 
-router.delete("/:id",controller.deleteOne)
+router.delete("/:id",asyncWrapp(controller.deleteOne))
 
 
 export default router;

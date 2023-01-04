@@ -6,13 +6,13 @@ const youtube_videos_router = Router();
 
 youtube_videos_router.get("/",asyncWrapp(controller.getAll));
 
-youtube_videos_router.get("/:id",controller.getOne);
+youtube_videos_router.get("/:id",asyncWrapp(controller.getOne));
 
-youtube_videos_router.post("/",controller.addone);
+youtube_videos_router.post("/",asyncWrapp(controller.addone));
 
-youtube_videos_router.put("/:id",controller.updateOne);
+youtube_videos_router.put("/:id",asyncWrapp(controller.updateOne));
 
-youtube_videos_router.delete("/:id",controller.deleteOne);
+youtube_videos_router.delete("/:id",asyncWrapp(controller.deleteOne));
 
 
 

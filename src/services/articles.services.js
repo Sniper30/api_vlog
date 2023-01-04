@@ -14,10 +14,11 @@ export async function getOne(id) {
 }
 
 export async function addOne(body) {
-  let { author, title, date, post, topics, image } = body;
+  console.log(body)
+  let { author, title, date, post, topics, image,LIKES,COMMENTS } = body;
   await db
     .collection("articles")
-    .add({ author, title, date, post, topics, image });
+    .add({ author, title, date, post, topics, image,LIKES,COMMENTS });
 }
 
 export async function deleteOne(id) {
